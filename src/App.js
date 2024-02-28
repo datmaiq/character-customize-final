@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from "react";
+import Avatar from "./components/Avatar";
+const total = {
+  body: 17,
+  eyes: 17,
+  hair: 73,
+  mouth: 24,
+  eyebrows: 15,
+  hat: 28,
+  glasses: 17,
+  clothing1: 5,
+  clothing2: 5,
+  clothing3: 9,
+};
 function App() {
+  const [body, setBody] = useState();
+  const [eyes, setEyes] = useState();
+  const [hair, setHair] = useState();
+  const [mouth, setMouth] = useState();
+  const [hat, setHat] = useState();
+  const [eyebrows, setEyebrows] = useState();
+  const [glasses, setGlasses] = useState();
+  const [clothing1, setClothing1] = useState();
+  const [clothing2, setClothing2] = useState();
+  const [clothing3, setClothing3] = useState();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Character customize</h1>
+      <Avatar />
+    </>
   );
 }
 
