@@ -48,17 +48,17 @@ const total = {
   },
   clothes: {
     clothing1: {
-      name: `clothing 1`,
+      name: `clothing `,
       qty: 5,
       style: { zIndex: 1, position: "absolute", left: 0 },
     },
     clothing2: {
-      name: `clothing 2`,
+      name: `outerwear`,
       qty: 5,
       style: { zIndex: 3, position: "absolute", left: 0 },
     },
     clothing3: {
-      name: `clothing 3`,
+      name: `clothing `,
       qty: 9,
       style: { zIndex: 4, position: "absolute", left: 0 },
     },
@@ -69,7 +69,7 @@ const total = {
     style: { zIndex: 0 },
   },
   eyes: {
-    name: `eyes`,
+    name: `eye`,
     qty: 24,
     style: { zIndex: 1, position: "absolute", left: 0 },
   },
@@ -79,7 +79,7 @@ const total = {
     style: { zIndex: 1, position: "absolute", left: 0 },
   },
   mouths: {
-    name: `mouths`,
+    name: `mouth`,
     qty: 24,
     style: { zIndex: 1, position: "absolute", left: 0 },
   },
@@ -94,7 +94,7 @@ const total = {
     style: { zIndex: 1, position: "absolute", left: 0 },
   },
   noses: {
-    name: `noses`,
+    name: `nose`,
     qty: 1,
     style: { zIndex: 1, position: "absolute", left: 0 },
   },
@@ -135,43 +135,43 @@ function App() {
       },
       glasses: {
         dir: `images/accessories/glasses/${getRandomNumber(
-          total.accessories.glasses.qty,
+          total.accessories.glasses.qty
         )}.png`,
         style: total.accessories.glasses.style,
       },
       earrings: {
         dir: `images/accessories/earrings/${getRandomNumber(
-          total.accessories.earrings.qty,
+          total.accessories.earrings.qty
         )}.png`,
         style: total.accessories.earrings.style,
       },
       hats: {
         dir: `images/accessories/hats/${getRandomNumber(
-          total.accessories.hats.qty,
+          total.accessories.hats.qty
         )}.png`,
         style: total.accessories.hats.style,
       },
       neckwear: {
         dir: `images/accessories/neckwear/${getRandomNumber(
-          total.accessories.neckwear.qty,
+          total.accessories.neckwear.qty
         )}.png`,
         style: total.accessories.neckwear.style,
       },
       clothing1: {
         dir: `images/clothes/clothing1/${getRandomNumber(
-          total.clothes.clothing1.qty,
+          total.clothes.clothing1.qty
         )}.png`,
         style: total.clothes.clothing1.style,
       },
       clothing2: {
         dir: `images/clothes/clothing2/${getRandomNumber(
-          total.clothes.clothing2.qty,
+          total.clothes.clothing2.qty
         )}.png`,
         style: total.clothes.clothing2.style,
       },
       clothing3: {
         dir: `images/clothes/clothing3/${getRandomNumber(
-          total.clothes.clothing3.qty,
+          total.clothes.clothing3.qty
         )}.png`,
         style: total.clothes.clothing3.style,
       },
@@ -180,7 +180,7 @@ function App() {
         style: total.noses.style,
       },
     }),
-    [],
+    []
   );
 
   const randomAvatar = useCallback(() => {
@@ -219,7 +219,7 @@ function App() {
             dir={`${dir}/${key}`}
             renderAvatar={renderAvatar}
           />
-        ),
+        )
       );
     }
 
@@ -227,13 +227,13 @@ function App() {
   };
 
   return (
-    <>
-      <h1 className="title">Character customize</h1>
+    <div className="background">
+      <h1 className="title">🚻 Character customize 🚻</h1>
       <div className="container">
         <Avatar avatar={avatar} randomAvatar={randomAvatar} />
         <div className="item-clothe">{renderPatternList(total)}</div>
       </div>
-    </>
+    </div>
   );
 }
 
