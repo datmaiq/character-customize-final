@@ -45,8 +45,9 @@ h1 {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.151);
   overflow: hidden;
 }
-.item-image img {
+.item-image img:hover {
   /* transform: scale(1.25); */
+  background-color: antiquewhite;
 }
 .button-random {
   width: 100px;

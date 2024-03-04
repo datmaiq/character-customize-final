@@ -2,83 +2,187 @@ import React, { useState, useCallback, useEffect } from "react";
 import "./App.css";
 import Avatar from "./components/Avatar";
 import PartList from "./components/PartList";
+// const total = {
+//   accessories: {
+//     hats: 28,
+//     glasses: 17,
+//     earrings: 32,
+//     neckwear: 18,
+//   },
+//   clothes: {
+//     clothing1: 5,
+//     clothing2: 5,
+//     clothing3: 9,
+//   },
+//   body: 17,
+//   eyes: 17,
+//   hair: 73,
+//   mouths: 24,
+//   eyebrows: 15,
+//   facial_hair: 17,
+//   noses: 1,
+// };
+
 const total = {
   accessories: {
-    hats: 28,
-    glasses: 17,
-    earrings: 32,
-    neckwear: 18,
+    hats: {
+      name: `hats`,
+      qty: 28,
+      style: { zIndex: 2, position: "absolute", left: 0 },
+    },
+    glasses: {
+      name: `glasses`,
+      qty: 17,
+      style: { zIndex: 2, position: "absolute", left: 0 },
+    },
+    earrings: {
+      name: `earrings`,
+      qty: 32,
+      style: { zIndex: 1, position: "absolute", left: 0 },
+    },
+    neckwear: {
+      name: `neckwear`,
+      qty: 18,
+      style: { zIndex: 5, position: "absolute", left: 0 },
+    },
   },
   clothes: {
-    clothing1: 5,
-    clothing2: 5,
-    clothing3: 9,
+    clothing1: {
+      name: `clothing 1`,
+      qty: 5,
+      style: { zIndex: 1, position: "absolute", left: 0 },
+    },
+    clothing2: {
+      name: `clothing 2`,
+      qty: 5,
+      style: { zIndex: 3, position: "absolute", left: 0 },
+    },
+    clothing3: {
+      name: `clothing 3`,
+      qty: 9,
+      style: { zIndex: 4, position: "absolute", left: 0 },
+    },
   },
-  body: 17,
-  eyes: 17,
-  hair: 73,
-  mouths: 24,
-  eyebrows: 15,
-  facial_hair: 17,
-  nose: 1,
+  body: {
+    name: `body`,
+    qty: 17,
+    style: { zIndex: 0 },
+  },
+  eyes: {
+    name: `eyes`,
+    qty: 24,
+    style: { zIndex: 1, position: "absolute", left: 0 },
+  },
+  hair: {
+    name: `hair`,
+    qty: 73,
+    style: { zIndex: 1, position: "absolute", left: 0 },
+  },
+  mouths: {
+    name: `mouths`,
+    qty: 24,
+    style: { zIndex: 1, position: "absolute", left: 0 },
+  },
+  eyebrows: {
+    name: `eyebrows`,
+    qty: 15,
+    style: { zIndex: 1, position: "absolute", left: 0 },
+  },
+  facial_hair: {
+    name: `facial hair`,
+    qty: 17,
+    style: { zIndex: 1, position: "absolute", left: 0 },
+  },
+  noses: {
+    name: `noses`,
+    qty: 1,
+    style: { zIndex: 1, position: "absolute", left: 0 },
+  },
 };
 
 function getRandomNumber(num) {
   return Math.floor(Math.random() * (num - 1) + 1);
 }
-function App() {
-  // const [body, setBody] = useState();
-  // const [eye, setEye] = useState();
-  // const [hair, setHair] = useState();
-  // const [mouth, setMouth] = useState();
-  // const [nose, setNose] = useState();
-  // const [facialhair, setFacialhair] = useState();
-  // const [eyebrows, setEyebrows] = useState();
-  // const [glasses, setGlasses] = useState();
-  // const [earrings, setEarrings] = useState();
-  // const [hat, setHat] = useState();
-  // const [neckwear, setNeckwear] = useState();
-  // const [clothing1, setClothing1] = useState();
-  // const [clothing2, setClothing2] = useState();
-  // const [clothing3, setClothing3] = useState();
 
+function App() {
   const [avatar, setAvatar] = useState({});
 
   const generateRandomAvatar = useCallback(
     () => ({
-      body: `images/body/${getRandomNumber(total.body)}.png`,
-      eye: `images/eyes/${getRandomNumber(total.eyes)}.png`,
-      hair: `images/hair/${getRandomNumber(total.hair)}.png`,
-      mouth: `images/mouths/${getRandomNumber(total.mouths)}.png`,
-      facialhair: `images/facial_hair/${getRandomNumber(
-        total.facial_hair
-      )}.png`,
-      eyebrows: `images/eyebrows/${getRandomNumber(total.eyebrows)}.png`,
-      glasses: `images/accessories/glasses/${getRandomNumber(
-        total.accessories.glasses
-      )}.png`,
-      earrings: `images/accessories/earrings/${getRandomNumber(
-        total.accessories.glasses
-      )}.png`,
-      hat: `images/accessories/hats/${getRandomNumber(
-        total.accessories.hats
-      )}.png`,
-      neckwear: `images/accessories/neckwear/${getRandomNumber(
-        total.accessories.neckwear
-      )}.png`,
-      clothing1: `images/clothes/clothing1/${getRandomNumber(
-        total.clothes.clothing1
-      )}.png`,
-      clothing2: `images/clothes/clothing2/${getRandomNumber(
-        total.clothes.clothing2
-      )}.png`,
-      clothing3: `images/clothes/clothing3/${getRandomNumber(
-        total.clothes.clothing3
-      )}.png`,
-      nose: `images/nose/${getRandomNumber(total.nose)}.png`,
+      body: {
+        dir: `images/body/${getRandomNumber(total.body.qty)}.png`,
+        style: total.body.style,
+      },
+      eyes: {
+        dir: `images/eyes/${getRandomNumber(total.eyes.qty)}.png`,
+        style: total.eyes.style,
+      },
+      hair: {
+        dir: `images/hair/${getRandomNumber(total.hair.qty)}.png`,
+        style: total.hair.style,
+      },
+      mouths: {
+        dir: `images/mouths/${getRandomNumber(total.mouths.qty)}.png`,
+        style: total.mouths.style,
+      },
+      facial_hair: {
+        dir: `images/facial_hair/${getRandomNumber(total.facial_hair.qty)}.png`,
+        style: total.facial_hair.style,
+      },
+      eyebrows: {
+        dir: `images/eyebrows/${getRandomNumber(total.eyebrows.qty)}.png`,
+        style: total.eyebrows.style,
+      },
+      glasses: {
+        dir: `images/accessories/glasses/${getRandomNumber(
+          total.accessories.glasses.qty,
+        )}.png`,
+        style: total.accessories.glasses.style,
+      },
+      earrings: {
+        dir: `images/accessories/earrings/${getRandomNumber(
+          total.accessories.earrings.qty,
+        )}.png`,
+        style: total.accessories.earrings.style,
+      },
+      hats: {
+        dir: `images/accessories/hats/${getRandomNumber(
+          total.accessories.hats.qty,
+        )}.png`,
+        style: total.accessories.hats.style,
+      },
+      neckwear: {
+        dir: `images/accessories/neckwear/${getRandomNumber(
+          total.accessories.neckwear.qty,
+        )}.png`,
+        style: total.accessories.neckwear.style,
+      },
+      clothing1: {
+        dir: `images/clothes/clothing1/${getRandomNumber(
+          total.clothes.clothing1.qty,
+        )}.png`,
+        style: total.clothes.clothing1.style,
+      },
+      clothing2: {
+        dir: `images/clothes/clothing2/${getRandomNumber(
+          total.clothes.clothing2.qty,
+        )}.png`,
+        style: total.clothes.clothing2.style,
+      },
+      clothing3: {
+        dir: `images/clothes/clothing3/${getRandomNumber(
+          total.clothes.clothing3.qty,
+        )}.png`,
+        style: total.clothes.clothing3.style,
+      },
+      noses: {
+        dir: `images/noses/${getRandomNumber(total.noses.qty)}.png`,
+        style: total.noses.style,
+      },
     }),
-    []
+    [],
   );
+
   const randomAvatar = useCallback(() => {
     const newAvatar = generateRandomAvatar();
     setAvatar(newAvatar);
@@ -86,68 +190,36 @@ function App() {
 
   useEffect(() => {
     setAvatar(generateRandomAvatar());
-  }, []);
+  }, [generateRandomAvatar]);
 
   const renderAvatar = (name, index) => {
-    if (name === "eyes") {
-      setAvatar({
-        ...avatar,
-        eye: `images/eyes/${index}.png`,
-      });
-    } else if (name === "hair") {
-      setAvatar({
-        ...avatar,
-        hair: `images/hair/${index}.png`,
-      });
-    }
+    let temp = { ...avatar };
+    temp[name].dir = index;
+    setAvatar({
+      ...avatar,
+      ...temp,
+    });
     console.log(name, index);
+    console.log(avatar);
   };
-  // const renderAvatar = (name, index) => {
-  //   setAvatar({
-  //     ...avatar,
-  //     eye: `images/${name}/${index}.png`,
-  //     hair: `images/${name}/${index}.png`,
-  //   });
-  // };
-
-  // printEvent();
-  // console.log(avatar);
-  // useEffect(() => {
-  //   setAvatar(renderAvatar);
-  // }, [avatar]);
-  // console.log(avatar);
-  // const renderPatternList = (obj, dir = "") => {
-  //   let content = [];
-  //   for (let key in obj) {
-  //     if (typeof obj[key] !== "number") {
-  //       let res = renderPatternList(obj[key], key);
-  //       content.push(...res);
-  //       console.log(content);
-  //     } else {
-  //       content.push(
-  //         <PartList len={obj[key]} name={key} dir={`${dir}/${key}`} />
-  //       );
-  //     }
-  //   }
-  //   return content;
-  // };
 
   const renderPatternList = (obj, dir = "") => {
     let content = [];
     for (let key in obj) {
       const value = obj[key];
       content.push(
-        typeof value !== "number" ? (
+        typeof value === "object" && !Object.hasOwn(value, "name") ? (
           renderPatternList(value, key)
         ) : (
           <PartList
-            len={value}
-            name={key}
+            key={key}
+            keyObj={key}
+            len={value.qty}
+            name={value.name}
             dir={`${dir}/${key}`}
             renderAvatar={renderAvatar}
-            // printEvent={printEvent}
           />
-        )
+        ),
       );
     }
 

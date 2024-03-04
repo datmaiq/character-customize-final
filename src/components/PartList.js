@@ -1,22 +1,21 @@
 import React from "react";
 import ListItem from "./ListItem";
 
-function PartList({ len, name, dir, printEvent, renderAvatar }) {
+function PartList({ len, keyObj, name, dir, renderAvatar }) {
   const renderItem = (len, dir) => {
     let content = [];
-
     for (let i = 1; i <= len; i++) {
-      // console.log(i);
       content.push(
         <ListItem
+          key={i}
+          keyObj={keyObj}
           index={i}
           dir={dir}
           width="100px"
           height="100px"
           renderAvatar={renderAvatar}
-          printEvent={printEvent}
           name={name}
-        />
+        />,
       );
     }
     return content;

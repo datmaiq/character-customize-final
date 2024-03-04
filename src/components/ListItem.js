@@ -1,14 +1,6 @@
 import React from "react";
 
-function ListItem({
-  name,
-  index,
-  dir,
-  width,
-  height,
-  printEvent,
-  renderAvatar,
-}) {
+function ListItem({ name, keyObj, index, dir, width, height, renderAvatar }) {
   return (
     <div className="item-image">
       {" "}
@@ -18,10 +10,14 @@ function ListItem({
         id={index}
         src={`images/${dir}/${index}.png`}
         alt={`hinh-${index}`}
-        style={{ width: `${width}`, height: `${height}` }}
-        renderAvatar={renderAvatar}
-        printEvent={printEvent}
-        onClick={(e) => renderAvatar(name, index)}
+        style={{
+          width: `${width}`,
+          height: `${height}`,
+          cursor: "pointer",
+          padding: "10px 0px",
+          marginBottom: "-10px",
+        }}
+        onClick={(e) => renderAvatar(keyObj, e.target.src)}
       />
     </div>
   );
