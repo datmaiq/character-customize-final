@@ -10,24 +10,21 @@ function Avatar({ avatar, randomAvatar }) {
           src={data[i].dir}
           alt={`hinh-${i}`}
           style={data[i].style}
-        />,
+        />
       );
     }
     return content;
   };
 
   return (
-    <div
-      className="wrap-avatar"
-      style={{ display: "flex", position: "relative" }}
-    >
+    <div className="wrap-avatar" style={{}}>
       <div className="avatar" style={{ position: "fixed" }}>
         {renderItem(avatar)}
-      </div>
 
-      <button className="button-random" onClick={() => randomAvatar()}>
-        RANDOMIZE
-      </button>
+        <button className="button-random" onClick={() => randomAvatar()}>
+          RANDOMIZE
+        </button>
+      </div>
     </div>
   );
 }

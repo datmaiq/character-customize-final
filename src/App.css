@@ -44,7 +44,8 @@ h1 {
   text-align: center;
 }
 .wrap-avatar {
-  /* max-width: 40%; */
+  display: flex;
+  position: relative;
   flex: 2;
   margin: 10px;
 }
@@ -77,76 +78,7 @@ h1 {
   /* transform: scale(1.25); */
   background-color: antiquewhite;
 }
-/* CSS */
-/* .button-random {
-  height: 25px;
-  position: fixed;
-  left: 17%;
-  top: 90%;
-  align-items: center;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 2px 2px 0px 1px #d1cfcb;
-  box-sizing: border-box;
-  color: #121212;
-  cursor: pointer;
-  display: inline-flex;
-  flex: 1 1 auto;
-  font-family: Inter, sans-serif;
-  font-size: 1.2rem;
-  font-weight: 700;
-  justify-content: center;
-  line-height: 1;
-  margin: 0;
-  outline: none;
-  padding: 1rem 1.2rem;
-  text-align: center;
-  text-decoration: none;
-  transition: box-shadow 0.2s, -webkit-box-shadow 0.2s;
-  white-space: nowrap;
-  border: 0;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
 
-.button-random:hover {
-  box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
-} */
-
-/* CSS */
-/* .button-random {
-  height: 25px;
-  position: fixed;
-  left: 17%;
-  top: 90%;
-
-  font-size: 16px;
-  letter-spacing: 2px;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #000;
-  cursor: pointer;
-  border: 3px solid;
-  padding: 0.25em 0.5em;
-  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
-    5px 5px 0px 0px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.button-random:hover {
-  box-shadow: 0px 0px 0px 0px;
-}
-
-@media (min-width: 768px) {
-  .button-54 {
-    padding: 0.25em 0.75em;
-  }
-} */
-
-/* CSS */
 .button-random {
   position: fixed;
   left: 15%;
@@ -175,4 +107,38 @@ h1 {
 .button-random :active {
   box-shadow: #422800 2px 2px 0 0;
   transform: translate(2px, 2px);
+}
+@media only screen and (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+  }
+  .wrap-avatar {
+    justify-content: center;
+    margin-bottom: 5rem;
+  }
+  .avatar {
+    position: relative !important;
+  }
+  .item-image {
+    margin: 10px;
+  }
+  .button-random {
+    position: absolute;
+    left: 35%;
+    top: 100%;
+    transform: translate(0, 60%);
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .avatar img {
+    height: 350px;
+    width: 350px;
+  }
+  .button-random {
+    position: absolute;
+    left: 30%;
+    top: 100%;
+    transform: translate(0, 60%);
+  }
 }
